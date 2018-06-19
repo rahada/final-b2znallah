@@ -1,0 +1,68 @@
+
+<div class="container">
+  <div class="row">
+         <div class="navbar-nav">
+           <a  routerLink="/CourseAdmin">Courses</a>
+           <a  routerLink="/AdminInstructor">instructor</a>
+           <a  routerLink="/WrkspaceAdmin">workspace</a>
+           <a  routerLink="/SecApprove">second approve course</a>
+         </div><!-- navbar-nav -->
+         </div><!-- row -->
+
+      <div class="row" *ngFor="let x of crsjson">
+         <div calss="col-lg-3 col-sm-12">
+            <p><b>offeredCourseId:</b>{{x.offeredCourseId}}</p>
+            <p><b>name:</b>{{x.name}}</p>
+            <p><b>description:</b>{{x.description}}</p>
+            <p><b>cost:</b>{{x.cost}}</p>
+            <p><b>durationHours:</b>{{x.durationHours}}</p>
+            <p><b>startDate:</b>{{x.startDate}}</p>
+            <p><b>endDate:</b>{{x.endDate}}</p>
+            <img src="{{x.imageUrl}}"> 
+            <p><b>noOfApplicant:</b>{{x.noOfApplicant}}</p>
+         </div><!-- column -->
+
+         <div class="col-lg-3">
+          <p><b>Name: </b>{{x.categoryId.name}}</p>
+          <img src={{x.categoryId.imageUrl}}>
+          <p><b>userId:</b>{{x.instructorId.userId}}</p>
+          <p><b> totalRate:</b>{{x.instructorId. totalRate}}</p>
+          
+          <div *ngFor="let video of x.instructorId.instructorVideosCollection">
+            <p><b>videoUrl: </b>{{video.videoUrl}}</p>
+          </div>
+
+          <div *ngFor="let skill of x.instructorId.skillsCollection">
+            <p><b>skillValue: </b>{{skill.skillValue}}</p>
+          </div>
+
+          <div *ngFor="let img of x.instructorId.instructorImagesCollection">
+            <img ng-src="{img.imageUrl}}">
+
+          </div>
+
+          <div *ngFor="let imgUrl of x.instructorId.instructorUrlsCollection">
+            <p><b>urlValue:</b>{{imgUrl.urlValue}}</p>
+          </div>
+        </div><!-- column -->
+
+          <div class="col-lg-3">
+            <!-- <p><b>workSpaceId:</b>{{x.hostingWorkSpaceId.workSpaceId}}</p> -->
+            <p><b>totalRate:</b>{{x.hostingWorkSpaceId.totalRate}}</p>
+            <img src="{{x.hostingWorkSpaceId.imageUrl}}">
+            <p><b>city:</b>{{x.hostingWorkSpaceId.city}}</p>
+            <p><b>address:</b>{{x.hostingWorkSpaceId.address}}</p>
+            <p><b>name:</b>{{x.hostingWorkSpaceId.name}}</p>
+            <p><b>startTime:</b>{{x.hostingWorkSpaceId.startTime}}</p>
+            <p><b>closingTime:</b>{{x.hostingWorkSpaceId.closingTime}}</p>
+            <p><b>"holiday:</b>{{x.hostingWorkSpaceId.holiday}}</p>
+            <p><b>description:</b>{{x.hostingWorkSpaceId.description}}</p>
+            <p><b>noOfRooms:</b>{{x.hostingWorkSpaceId.noOfRooms}}</p>
+            <p><b>facebookPageUrl:</b>{{x.hostingWorkSpaceId.facebookPageUrl}}</p>
+            
+            <div class="col-lgl-3">
+            <button type="button" class="btn btn-info" (click)="onload(x.offeredCourseId)">accept</button>
+          </div>
+          </div><!-- column -->
+        </div><!-- row -->  
+</div><!-- container -->
